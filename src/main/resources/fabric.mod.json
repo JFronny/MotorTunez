@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "id": "motor_tunez",
+  "version": "${version}",
+  "name": "MotorTunez",
+  "description": "",
+  "authors": [],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/MotorTunez/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "meteor": [
+      "io.gitlab.jfronny.motortunez.MotorTunez"
+    ]
+  },
+  "mixins": [
+    "MotorTunez.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.11.3",
+    "fabric": "*",
+    "minecraft": "1.16.5"
+  }
+}

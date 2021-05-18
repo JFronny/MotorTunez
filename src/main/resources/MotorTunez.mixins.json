@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "io.gitlab.jfronny.motortunez.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "MusicTrackerMixin",
+    "SoundManagerMixin",
+    "SoundSystemMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
