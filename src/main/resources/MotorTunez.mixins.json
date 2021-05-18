@@ -4,6 +4,7 @@
   "package": "io.gitlab.jfronny.motortunez.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "HUDModuleMixin",
     "MusicTrackerMixin",
     "SoundManagerMixin",
     "SoundSystemMixin"

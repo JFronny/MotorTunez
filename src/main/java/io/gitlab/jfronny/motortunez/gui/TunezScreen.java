@@ -37,12 +37,6 @@ public class TunezScreen extends WindowTabScreen {
         for (CustomWidget customWidget : childWidgets) {
             customWidget.add(table, this, theme);
         }
-        //TODO add music HUD
-        //TODO fix pause
-        //TODO allow saving playlists (by URL), default playlists from (see sigma)
-        //     UI: as in youtube, use PlaylistPage and PaginationProvider, on select, append songs after selected, add-all button
-        //TODO fix distance between pagination buttons
-        //TODO kang more stuff from https://www.curseforge.com/minecraft/mc-mods/hive365-radio-mod-fabric
     }
 
     public String getName(AudioTrack track) {

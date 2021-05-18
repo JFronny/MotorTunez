@@ -29,21 +29,9 @@ public class PlaylistHeader extends CustomWidget {
             screen.construct();
         };
 
-        long durationTotal = current.getDuration() - current.getPosition();
-        for (AudioTrack track : MotorTunez.trackScheduler.tracks) {
-            durationTotal += track.getDuration();
-        }
-        parent.add(theme.label("Duration: " + formatTime(durationTotal)));
+        parent.add(theme.label("Duration: " + MotorTunez.getTime()));
 
         parent.row();
         super.add(parent, screen, theme);
-    }
-
-    public String formatTime(long durationInMillis) {
-        long millis = durationInMillis % 1000;
-        long second = (durationInMillis / 1000) % 60;
-        long minute = (durationInMillis / (1000 * 60)) % 60;
-        long hour = (durationInMillis / (1000 * 60 * 60)) % 24;
-        return String.format("%02d:%02d:%02d.%d", hour, minute, second, millis);
     }
 }
