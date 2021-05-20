@@ -18,7 +18,7 @@ public class PlaylistPage extends CustomWidget {
     @Override
     public void add(WTable parent, TunezScreen screen, GuiTheme theme) {
         List<AudioTrack> tracks = source.get();
-        pagination.setMaxPage(tracks.size() / TunezScreen.pageSize + 1);
+        pagination.setMaxPage(tracks.size() / TunezScreen.pageSize);
         for (int i = 0; i < tracks.size() - pagination.getPageOffset() && i < TunezScreen.pageSize; i++) {
             int j = i + pagination.getPageOffset();
             parent.row();

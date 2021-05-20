@@ -18,10 +18,14 @@ import java.util.List;
 public class TrackScheduler extends AudioEventAdapter {
     public List<AudioTrack> tracks = new ArrayList<>();
     public void queue(AudioTrack track) {
+        if (track == null)
+            return;
         MotorTunez.log.info(track.getInfo().title);
-        if (!MotorTunez.player.startTrack(track, true))
+        if (!MotorTunez.player.startTrack(track, true)) {
+            if (tracks.contains(track) || MotorTunez.player.getPlayingTrack() == track)
+                track = track.makeClone();
             tracks.add(track);
-        else
+        } else
             MinecraftClient.getInstance().getSoundManager().stopSounds(null, SoundCategory.MUSIC);
         refreshUI();
     }

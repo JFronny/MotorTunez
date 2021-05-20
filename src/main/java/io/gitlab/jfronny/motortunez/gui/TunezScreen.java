@@ -2,8 +2,8 @@ package io.gitlab.jfronny.motortunez.gui;
 
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import io.gitlab.jfronny.motortunez.gui.widgets.CustomWidget;
-import io.gitlab.jfronny.motortunez.gui.widgets.PlaylistView;
-import io.gitlab.jfronny.motortunez.gui.widgets.SearchControl;
+import io.gitlab.jfronny.motortunez.gui.widgets.CurrentTracksView;
+import io.gitlab.jfronny.motortunez.gui.widgets.SearchBar;
 import minegame159.meteorclient.gui.GuiTheme;
 import minegame159.meteorclient.gui.tabs.Tab;
 import minegame159.meteorclient.gui.tabs.WindowTabScreen;
@@ -24,8 +24,8 @@ public class TunezScreen extends WindowTabScreen {
     protected void init() {
         super.init();
         childWidgets = new ArrayList<>();
-        childWidgets.add(new SearchControl());
-        childWidgets.add(new PlaylistView());
+        childWidgets.add(new SearchBar());
+        childWidgets.add(new CurrentTracksView());
         if (table != null) table.clear();
         clear();
         table = add(theme.table()).expandX().minWidth(300).widget();
@@ -40,6 +40,8 @@ public class TunezScreen extends WindowTabScreen {
     }
 
     public String getName(AudioTrack track) {
+        if (track == null)
+            return "Not playing";
         return track.getInfo().title + " (" + track.getInfo().author + ")";
     }
 }

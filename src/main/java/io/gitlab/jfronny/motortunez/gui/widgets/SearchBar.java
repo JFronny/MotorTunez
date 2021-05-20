@@ -5,17 +5,17 @@ import com.sedmelluq.discord.lavaplayer.tools.FriendlyException;
 import com.sedmelluq.discord.lavaplayer.track.AudioPlaylist;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import io.gitlab.jfronny.motortunez.MotorTunez;
+import io.gitlab.jfronny.motortunez.gui.SearchResultsScreen;
 import io.gitlab.jfronny.motortunez.gui.TunezScreen;
 import minegame159.meteorclient.gui.GuiTheme;
 import minegame159.meteorclient.gui.widgets.containers.WTable;
 import minegame159.meteorclient.gui.widgets.input.WTextBox;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.toast.SystemToast;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.TranslatableText;
 
 public class SearchBar extends CustomWidget {
-    private final SearchControl control;
-
     @Override
     public void add(WTable parent, TunezScreen screen, GuiTheme theme) {
         WTextBox box = parent.add(theme.textBox("")).expandX().widget();
@@ -31,8 +31,9 @@ public class SearchBar extends CustomWidget {
 
                 @Override
                 public void playlistLoaded(AudioPlaylist playlist) {
-                    control.searchResults = playlist;
-                    screen.construct();
+                    if (playlist.getTracks().isEmpty())
+                        return;
+                    MinecraftClient.getInstance().openScreen(new SearchResultsScreen(theme, playlist, screen));
                 }
 
                 @Override
@@ -52,9 +53,5 @@ public class SearchBar extends CustomWidget {
             });
         };
         super.add(parent, screen, theme);
-    }
-    
-    public SearchBar(SearchControl control) {
-        this.control = control;
     }
 }

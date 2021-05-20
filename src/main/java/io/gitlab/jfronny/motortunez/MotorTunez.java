@@ -36,8 +36,6 @@ public class MotorTunez extends MeteorAddon {
         streamPlayer = new StreamPlayer();
         Tabs.add(new TunezTab());
         start();
-        //TODO allow saving playlists (by URL), default playlists (see sigma)
-        //     UI: as in youtube, use PlaylistPage and PaginationProvider, on select, append songs after selected, add-all button
     }
     
     public static void toast(Text title, Text description, SystemToast.Type type) {
