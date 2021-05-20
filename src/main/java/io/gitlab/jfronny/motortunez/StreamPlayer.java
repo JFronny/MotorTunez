@@ -33,7 +33,7 @@ public class StreamPlayer implements Runnable {
         int chunkSize;
         try {
             while((chunkSize = stream.read(buffer)) > 0) {
-                while (!playing) {
+                while (MotorTunez.player.isPaused()) {
                     try {
                         Thread.sleep(500);
                     } catch (InterruptedException e) {

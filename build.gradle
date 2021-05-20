@@ -24,7 +24,7 @@ dependencies {
 
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-    modImplementation "com.github.MeteorDevelopment:meteor-client:master-SNAPSHOT"
+    modImplementation "com.github.JFronny:meteor-client:rounded-ui-SNAPSHOT"
     
     include modImplementation('com.sedmelluq:lavaplayer:1.3.76')
     include('com.sedmelluq:lava-common:1.2.1')

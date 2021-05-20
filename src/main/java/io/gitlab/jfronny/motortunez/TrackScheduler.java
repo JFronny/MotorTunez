@@ -34,7 +34,6 @@ public class TrackScheduler extends AudioEventAdapter {
     
     public void setPaused(boolean paused) {
         MotorTunez.player.setPaused(paused);
-        MotorTunez.streamPlayer.playing = !paused;
         refreshUI();
     }
     

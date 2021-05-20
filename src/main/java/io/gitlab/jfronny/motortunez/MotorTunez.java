@@ -36,7 +36,6 @@ public class MotorTunez extends MeteorAddon {
         streamPlayer = new StreamPlayer();
         Tabs.add(new TunezTab());
         start();
-        //TODO add music HUD
         //TODO allow saving playlists (by URL), default playlists (see sigma)
         //     UI: as in youtube, use PlaylistPage and PaginationProvider, on select, append songs after selected, add-all button
         //TODO fix distance between pagination buttons
@@ -59,10 +58,8 @@ public class MotorTunez extends MeteorAddon {
         for (AudioTrack track : MotorTunez.trackScheduler.tracks) {
             durationTotal += track.getDuration();
         }
-        long millis = durationTotal % 1000;
-        long second = (durationTotal / 1000) % 60;
         long minute = (durationTotal / (1000 * 60)) % 60;
         long hour = (durationTotal / (1000 * 60 * 60)) % 24;
-        return String.format("%02d:%02d:%02d.%d", hour, minute, second, millis);
+        return String.format("%02d:%02d", hour, minute);
     }
 }
