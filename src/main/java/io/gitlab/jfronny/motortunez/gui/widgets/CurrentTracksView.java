@@ -8,7 +8,7 @@ import minegame159.meteorclient.gui.widgets.containers.WTable;
 
 public class CurrentTracksView extends CustomWidget {
     private AudioTrack currentTrack;
-    private PaginationProvider pagination;
+    private final PaginationProvider pagination;
 
     @Override
     public void add(WTable parent, TunezScreen screen, GuiTheme theme) {
@@ -18,10 +18,10 @@ public class CurrentTracksView extends CustomWidget {
         super.add(currentTracks, screen, theme);
     }
 
-    public CurrentTracksView() {
+    public CurrentTracksView(TunezScreen screen) {
         childWidgets.add(new PlaybackControls());
         childWidgets.add(new CurrentTrackView());
-        pagination = new PaginationProvider();
+        pagination = new PaginationProvider(i -> screen.construct());
         childWidgets.add(new PlaylistPage(pagination, () -> MotorTunez.trackScheduler.tracks, i -> {
             MotorTunez.trackScheduler.tracks.subList(0, i).clear();
             MotorTunez.trackScheduler.playNext(MotorTunez.player);
@@ -40,6 +40,8 @@ public class CurrentTracksView extends CustomWidget {
                 parent.add(theme.minus()).widget().action = () -> {
                     MotorTunez.trackScheduler.playNext(MotorTunez.player);
                 };
+                if (MotorTunez.trackScheduler.hasNext())
+                    parent.row();
             }
             super.add(parent, screen, theme);
         }

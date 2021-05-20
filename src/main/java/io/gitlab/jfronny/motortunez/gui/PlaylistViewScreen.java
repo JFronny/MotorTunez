@@ -10,19 +10,20 @@ import minegame159.meteorclient.gui.GuiTheme;
 import minegame159.meteorclient.gui.WindowScreen;
 import minegame159.meteorclient.gui.widgets.containers.WTable;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.gui.screen.Screen;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class SearchResultsScreen extends WindowScreen {
+public class PlaylistViewScreen extends WindowScreen {
     private final AudioPlaylist results;
     private final TunezScreen tunezScreen;
     private List<CustomWidget> childWidgets;
     private WTable table;
 
-    public SearchResultsScreen(GuiTheme theme, AudioPlaylist results, TunezScreen tunezScreen) {
-        super(theme, "Music - Results");
-        this.results = results;
+    public PlaylistViewScreen(GuiTheme theme, AudioPlaylist playlist, TunezScreen tunezScreen) {
+        super(theme, "Music - " + playlist.getName());
+        this.results = playlist;
         this.tunezScreen = tunezScreen;
         this.parent = tunezScreen;
     }
@@ -31,7 +32,7 @@ public class SearchResultsScreen extends WindowScreen {
     protected void init() {
         super.init();
         childWidgets = new ArrayList<>();
-        PaginationProvider pagination = new PaginationProvider();
+        PaginationProvider pagination = new PaginationProvider(j -> construct());
         childWidgets.add(new PlaylistPage(pagination, results::getTracks, i -> {
             MotorTunez.trackScheduler.queue(results.getTracks().get(i));
         }, null));
@@ -44,19 +45,21 @@ public class SearchResultsScreen extends WindowScreen {
 
     public void construct() {
         table.clear();
-        table.add(theme.button("Add all")).widget().action = () -> {
+        table.add(theme.button("Add all")).expandX().widget().action = () -> {
             for (AudioTrack track : results.getTracks()) {
                 MotorTunez.trackScheduler.queue(track);
             }
             MinecraftClient.getInstance().openScreen(parent);
             tunezScreen.construct();
         };
-        table.add(theme.button("OK")).widget().action = () -> {
-            MinecraftClient.getInstance().openScreen(parent);
-            tunezScreen.construct();
-        };
+        table.row();
         for (CustomWidget customWidget : childWidgets) {
             customWidget.add(table, tunezScreen, theme);
         }
+    }
+    
+    public PlaylistViewScreen setParent(Screen screen) {
+        parent = screen;
+        return this;
     }
 }

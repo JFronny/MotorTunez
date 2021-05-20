@@ -5,9 +5,13 @@ import minegame159.meteorclient.gui.GuiTheme;
 import minegame159.meteorclient.gui.widgets.containers.WHorizontalList;
 import minegame159.meteorclient.gui.widgets.containers.WTable;
 
+import java.util.function.Consumer;
+
 public class PaginationProvider extends CustomWidget {
     private int currentPage = 0;
     private int maxPage = 0;
+    private final Consumer<Integer> onPageChange;
+
     @Override
     public void add(WTable parent, TunezScreen screen, GuiTheme theme) {
         if (maxPage > 1) {
@@ -22,7 +26,8 @@ public class PaginationProvider extends CustomWidget {
                 else {
                     list.add(theme.button(pageName)).widget().action = () -> {
                         currentPage = j;
-                        screen.construct();
+                        if (onPageChange != null)
+                            onPageChange.accept(j);
                     };
                 }
             }
@@ -38,5 +43,9 @@ public class PaginationProvider extends CustomWidget {
     
     public int getPageOffset() {
         return currentPage * TunezScreen.pageSize;
+    }
+    
+    public PaginationProvider(Consumer<Integer> onPageChange) {
+        this.onPageChange = onPageChange;
     }
 }

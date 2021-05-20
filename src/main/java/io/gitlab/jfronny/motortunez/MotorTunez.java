@@ -6,6 +6,8 @@ import com.sedmelluq.discord.lavaplayer.player.DefaultAudioPlayerManager;
 import com.sedmelluq.discord.lavaplayer.source.AudioSourceManagers;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import io.gitlab.jfronny.motortunez.gui.TunezTab;
+import io.gitlab.jfronny.motortunez.util.PlaylistUtil;
+import io.gitlab.jfronny.motortunez.util.StreamPlayer;
 import minegame159.meteorclient.MeteorAddon;
 import minegame159.meteorclient.gui.tabs.Tabs;
 import net.fabricmc.api.Environment;
@@ -35,6 +37,7 @@ public class MotorTunez extends MeteorAddon {
         player.addListener(trackScheduler);
         streamPlayer = new StreamPlayer();
         Tabs.add(new TunezTab());
+        PlaylistUtil.load();
         start();
     }
     

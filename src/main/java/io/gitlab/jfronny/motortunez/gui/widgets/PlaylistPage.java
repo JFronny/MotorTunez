@@ -21,7 +21,8 @@ public class PlaylistPage extends CustomWidget {
         pagination.setMaxPage(tracks.size() / TunezScreen.pageSize);
         for (int i = 0; i < tracks.size() - pagination.getPageOffset() && i < TunezScreen.pageSize; i++) {
             int j = i + pagination.getPageOffset();
-            parent.row();
+            if (i != 0)
+                parent.row();
             AudioTrack track = tracks.get(j);
             if (select == null) parent.add(theme.label(screen.getName(track))).expandX();
             else parent.add(theme.button(screen.getName(track))).expandX().widget().action = () -> select.accept(j);

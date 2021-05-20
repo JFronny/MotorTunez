@@ -1,9 +1,10 @@
-package io.gitlab.jfronny.motortunez;
+package io.gitlab.jfronny.motortunez.util;
 
 import com.sedmelluq.discord.lavaplayer.format.AudioDataFormat;
 import com.sedmelluq.discord.lavaplayer.format.AudioPlayerInputStream;
 import com.sedmelluq.discord.lavaplayer.format.Pcm16AudioDataFormat;
 import com.sedmelluq.discord.lavaplayer.format.StandardAudioDataFormats;
+import io.gitlab.jfronny.motortunez.MotorTunez;
 
 import javax.sound.sampled.*;
 import java.io.IOException;

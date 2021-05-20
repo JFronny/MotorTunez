@@ -25,7 +25,7 @@ public class TunezScreen extends WindowTabScreen {
         super.init();
         childWidgets = new ArrayList<>();
         childWidgets.add(new SearchBar());
-        childWidgets.add(new CurrentTracksView());
+        childWidgets.add(new CurrentTracksView(this));
         if (table != null) table.clear();
         clear();
         table = add(theme.table()).expandX().minWidth(300).widget();

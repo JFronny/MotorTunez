@@ -89,7 +89,7 @@ public class TrackScheduler extends AudioEventAdapter {
     }
 
     public void playNext(AudioPlayer player) {
-        if (!tracks.isEmpty()) {
+        if (hasNext()) {
             player.playTrack(tracks.get(0));
             tracks.remove(0);
         }
@@ -97,6 +97,10 @@ public class TrackScheduler extends AudioEventAdapter {
             player.stopTrack();
         }
         refreshUI();
+    }
+
+    public boolean hasNext() {
+        return !tracks.isEmpty();
     }
 
     public void refreshUI() {

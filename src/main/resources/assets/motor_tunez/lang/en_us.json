@@ -2,6 +2,7 @@
   "motor_tunez.toast.noMatches.title": "No Result",
   "motor_tunez.toast.noMatches.description": "No track could be found",
   "motor_tunez.toast.loadFailed.title": "Load failed",
+  "motor_tunez.toast.loadFailed.description": "Could not load results",
   "motor_tunez.toast.trackStuck.title": "Track stuck",
   "motor_tunez.toast.trackStuck.description": "Track stuck for %s ms, playing next",
   "motor_tunez.toast.trackException.title": "Track failed",
