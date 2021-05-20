@@ -194,7 +194,6 @@ public class TunezHud extends HudElement {
             // Author
             if (showAuthor.get()) {
                 tr.render(author, x + h, y + h / 2 - (showTitle.get() ? 0 : tr.getHeight() / 2), textColor.get(), true);
-                //TODO slightly indent maybe
             }
             tr.end();
             // Total duration in minutes
