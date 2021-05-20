@@ -1,7 +1,6 @@
 package io.gitlab.jfronny.motortunez.gui.widgets;
 
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
-import io.gitlab.jfronny.motortunez.MotorTunez;
 import io.gitlab.jfronny.motortunez.gui.TunezScreen;
 import minegame159.meteorclient.gui.GuiTheme;
 import minegame159.meteorclient.gui.widgets.containers.WTable;
@@ -27,7 +26,7 @@ public class PlaylistPage extends CustomWidget {
             if (select == null) parent.add(theme.label(screen.getName(track))).expandX();
             else parent.add(theme.button(screen.getName(track))).expandX().widget().action = () -> select.accept(j);
 
-            if (remove != null) parent.add(theme.minus()).widget().action = () -> remove.accept(j);
+            if (remove != null) parent.add(theme.minus()).right().widget().action = () -> remove.accept(j);
         }
         super.add(parent, screen, theme);
     }

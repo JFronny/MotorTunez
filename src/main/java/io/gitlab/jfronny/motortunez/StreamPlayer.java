@@ -33,6 +33,13 @@ public class StreamPlayer implements Runnable {
         int chunkSize;
         try {
             while((chunkSize = stream.read(buffer)) > 0) {
+                while (!playing) {
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
                 this.line.write(buffer, 0, chunkSize);
                 if (stop) {
                     break;

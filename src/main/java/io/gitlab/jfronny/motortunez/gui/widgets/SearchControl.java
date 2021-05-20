@@ -28,17 +28,6 @@ public class SearchControl extends CustomWidget {
             searchResults = null;
             screen.construct();
         };
-        /*List<AudioTrack> t = this.searchResults.getTracks();
-        for (int i = 0; i < t.size() && i < TunezScreen.pageSize; i++) {
-            int j = i;
-            searchResults.add(theme.label(screen.getName(t.get(j)))).expandX();
-            searchResults.add(theme.plus()).widget().action = () -> {
-                MotorTunez.trackScheduler.queue(t.get(j));
-                this.searchResults = null;
-                screen.construct();
-            };
-            searchResults.row();
-        }*/
         super.add(p, screen, theme);
     }
 

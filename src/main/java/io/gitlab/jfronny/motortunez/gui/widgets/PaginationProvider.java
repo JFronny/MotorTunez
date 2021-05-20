@@ -2,6 +2,7 @@ package io.gitlab.jfronny.motortunez.gui.widgets;
 
 import io.gitlab.jfronny.motortunez.gui.TunezScreen;
 import minegame159.meteorclient.gui.GuiTheme;
+import minegame159.meteorclient.gui.widgets.containers.WHorizontalList;
 import minegame159.meteorclient.gui.widgets.containers.WTable;
 
 public class PaginationProvider extends CustomWidget {
@@ -9,16 +10,17 @@ public class PaginationProvider extends CustomWidget {
     private int maxPage = 0;
     @Override
     public void add(WTable parent, TunezScreen screen, GuiTheme theme) {
-        if (maxPage > screen.pageSize) {
+        if (maxPage > 1) {
             parent.row();
+            WHorizontalList list = parent.add(theme.horizontalList()).widget();
             for (int i = 0; i < maxPage; i++) {
                 int j = i;
                 String pageName = Integer.toString(j + 1);
                 if (j == currentPage) {
-                    parent.add(theme.label(pageName));
+                    list.add(theme.label(pageName));
                 }
                 else {
-                    parent.add(theme.button(pageName)).widget().action = () -> {
+                    list.add(theme.button(pageName)).widget().action = () -> {
                         currentPage = j;
                         screen.construct();
                     };

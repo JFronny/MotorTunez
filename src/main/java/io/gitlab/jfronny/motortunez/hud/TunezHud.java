@@ -12,6 +12,7 @@ public class TunezHud extends HudElement {
         super(hud, "tunez", "Displays the current music");
         //TODO fancier HUD with scrollbar-like view for time left in song and number of songs after it
         //     also display more info (optional)
+        //TODO PR HUD module API and extend rounded-ui to allow for round progress bar
     }
 
     @Override
