@@ -158,7 +158,7 @@ public class TunezHud extends HudElement {
             mb.quadRounded(x, y, w, h, backgroundColor.get(), renderer.roundAmount(), true);
 
             AudioTrack current = MotorTunez.player.getPlayingTrack();
-            long progress = current == null ? 1 : current.getPosition() / current.getDuration();
+            double progress = current == null ? 1 : current.getPosition() * 1d / current.getDuration();
             String title = current == null ? notPlaying : current.getInfo().title;
             String author = current == null ? notPlaying : current.getInfo().author;
 
