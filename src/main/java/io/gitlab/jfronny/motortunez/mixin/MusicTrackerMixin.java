@@ -11,7 +11,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class MusicTrackerMixin {
     @Inject(at = @At("HEAD"), method = "tick()V", cancellable = true)
     public void tick(CallbackInfo info) {
-        if (MotorTunez.trackScheduler.isPlaying())
-            info.cancel();
+        info.cancel();
     }
 }

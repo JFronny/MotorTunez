@@ -9,7 +9,6 @@ import io.gitlab.jfronny.motortunez.gui.TunezScreen;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.toast.SystemToast;
-import net.minecraft.sound.SoundCategory;
 import net.minecraft.text.TranslatableText;
 
 import java.util.ArrayList;
@@ -25,15 +24,8 @@ public class TrackScheduler extends AudioEventAdapter {
             if (tracks.contains(track) || MotorTunez.player.getPlayingTrack() == track)
                 track = track.makeClone();
             tracks.add(track);
-        } else
-            MinecraftClient.getInstance().getSoundManager().stopSounds(null, SoundCategory.MUSIC);
+        }
         refreshUI();
-    }
-    
-    public boolean isPlaying() {
-        return MotorTunez.player.getPlayingTrack() != null
-                && !MotorTunez.player.isPaused()
-                && MotorTunez.streamPlayer.playing;
     }
     
     public void setPaused(boolean paused) {
