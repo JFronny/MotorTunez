@@ -15,13 +15,13 @@ public class PlaylistUtil {
     public static void load() {
         playlists.clear();
         if (!Files.exists(filePath)) {
-            playlists.put("https://music.youtube.com/playlist?list=PLC1og_v3eb4h1MA88R3JHcPoLUpCRtxiZ", null); // trap nation bestof
+            playlists.put("https://music.youtube.com/playlist?list=PLM2V-zC1RSteO_kwDNGI0EvDSBRhKaUZq", null); // cloud kid
             playlists.put("https://music.youtube.com/watch?v=BAPRv3Zts_w&list=RDQMuICnGifx4w8", null); // chill nation mix
-            playlists.put("https://music.youtube.com/playlist?list=PL2vYabJDBczNGOYVGXMIlH4G_wcYje5Oi", null); // rap nation
             playlists.put("https://music.youtube.com/playlist?list=PLDfKAXSi6kUbhK3vq2bkwqAMdLF4tk-Ff", null); // MrSuicideSheep
-            playlists.put("https://music.youtube.com/playlist?list=PLU_bQfSFrM2PemIeyVUSjZjJhm6G7auOY", null); // trap city
-            playlists.put("https://music.youtube.com/playlist?list=PLM2V-zC1RStf0qLkUzq9uEjwTAWQGazHs", null); // cloud kid
             playlists.put("https://music.youtube.com/playlist?list=PLRBp0Fe2GpglKIXdvLnzcnCdRwEr3tbkO", null); // NCS
+            playlists.put("https://music.youtube.com/playlist?list=PL2vYabJDBczNGOYVGXMIlH4G_wcYje5Oi", null); // rap nation
+            playlists.put("https://music.youtube.com/playlist?list=PLC1og_v3eb4h1MA88R3JHcPoLUpCRtxiZ", null); // trap nation bestof
+            playlists.put("https://music.youtube.com/playlist?list=PLU_bQfSFrM2PemIeyVUSjZjJhm6G7auOY", null); // trap city
             save();
             playlists.clear();
         }
