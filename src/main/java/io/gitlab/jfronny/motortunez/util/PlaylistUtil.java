@@ -47,6 +47,15 @@ public class PlaylistUtil {
         }
     }
     
+    public static void reset() {
+        try {
+            Files.delete(filePath);
+            load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
     public static void add(String source) {
         playlists.put(source, null);
         save();

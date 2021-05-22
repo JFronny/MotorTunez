@@ -26,10 +26,16 @@ public class PlaybackControls extends CustomWidget {
                 pauseButton.set("Resume");
             }
         };
-        list.add(theme.button("Shuffle")).widget().action = () -> {
-            Collections.shuffle(MotorTunez.trackScheduler.tracks);
-            screen.construct();
-        };
+        if (MotorTunez.trackScheduler.hasNext()) {
+            list.add(theme.button("Shuffle")).widget().action = () -> {
+                Collections.shuffle(MotorTunez.trackScheduler.tracks);
+                screen.construct();
+            };
+            list.add(theme.button("Clear")).widget().action = () -> {
+                MotorTunez.trackScheduler.tracks.clear();
+                screen.construct();
+            };
+        }
         list.add(theme.button("Playlists")).widget().action = () -> {
             MinecraftClient.getInstance().openScreen(new PlaylistsScreen(theme, screen));
         };

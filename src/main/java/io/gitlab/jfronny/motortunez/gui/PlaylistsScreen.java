@@ -53,6 +53,12 @@ public class PlaylistsScreen extends WindowScreen {
                     PlaylistUtil.add(box.get());
                     construct();
                 });
+        
+        table.row();
+        table.add(theme.button("Reset")).expandX().widget().action = () -> {
+            PlaylistUtil.reset();
+            construct();
+        };
 
         List<Map.Entry<String, AudioPlaylist>> keys = PlaylistUtil.getEntriesOrdered();
         for (int i = 0; i < keys.size(); i++) {
@@ -60,7 +66,7 @@ public class PlaylistsScreen extends WindowScreen {
             table.row();
             AudioPlaylist playlist = keys.get(j).getValue();
 
-            table.add(theme.button(playlist.getName())).expandX().widget().action =() ->
+            table.add(theme.button(playlist.getName())).expandX().widget().action = () ->
                     MinecraftClient.getInstance().openScreen(new PlaylistViewScreen(theme, playlist, tunezScreen).setParent(this));
 
             table.add(theme.minus()).right().widget().action = () -> {
