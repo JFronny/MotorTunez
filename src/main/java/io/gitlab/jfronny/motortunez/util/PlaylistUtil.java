@@ -15,6 +15,7 @@ public class PlaylistUtil {
     public static void load() {
         playlists.clear();
         if (!Files.exists(filePath)) {
+            playlists.put("https://music.youtube.com/playlist?list=PL63ZO-jXFTasqvj7WdEFQ6QtG6UBrl9CR&feature=share", null); // electronic gems
             playlists.put("https://music.youtube.com/playlist?list=PLM2V-zC1RSteO_kwDNGI0EvDSBRhKaUZq", null); // cloud kid
             playlists.put("https://music.youtube.com/watch?v=BAPRv3Zts_w&list=RDQMuICnGifx4w8", null); // chill nation mix
             playlists.put("https://music.youtube.com/playlist?list=PLDfKAXSi6kUbhK3vq2bkwqAMdLF4tk-Ff", null); // MrSuicideSheep
