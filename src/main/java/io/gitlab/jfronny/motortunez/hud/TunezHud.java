@@ -2,15 +2,14 @@ package io.gitlab.jfronny.motortunez.hud;
 
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import io.gitlab.jfronny.motortunez.MotorTunez;
-import minegame159.meteorclient.rendering.DrawMode;
-import minegame159.meteorclient.rendering.MeshBuilder;
-import minegame159.meteorclient.rendering.Renderer;
-import minegame159.meteorclient.rendering.text.TextRenderer;
-import minegame159.meteorclient.settings.*;
-import minegame159.meteorclient.systems.modules.render.hud.HUD;
-import minegame159.meteorclient.systems.modules.render.hud.HudRenderer;
-import minegame159.meteorclient.systems.modules.render.hud.modules.HudElement;
-import minegame159.meteorclient.utils.render.color.SettingColor;
+import meteordevelopment.meteorclient.renderer.Mesh;
+import meteordevelopment.meteorclient.renderer.Renderer2D;
+import meteordevelopment.meteorclient.renderer.text.TextRenderer;
+import meteordevelopment.meteorclient.settings.*;
+import meteordevelopment.meteorclient.systems.modules.render.hud.HUD;
+import meteordevelopment.meteorclient.systems.modules.render.hud.HudRenderer;
+import meteordevelopment.meteorclient.systems.modules.render.hud.modules.HudElement;
+import meteordevelopment.meteorclient.utils.render.color.SettingColor;
 import net.minecraft.client.render.VertexFormats;
 
 public class TunezHud extends HudElement {
@@ -151,11 +150,10 @@ public class TunezHud extends HudElement {
             double y = box.getY();
             double w = box.width;
             double h = box.height;
-            MeshBuilder mb = Renderer.NORMAL;
 
             // Background
-            mb.begin(null, DrawMode.Triangles, VertexFormats.POSITION_COLOR);
-            mb.quadRounded(x, y, w, h, backgroundColor.get(), renderer.roundAmount(), true);
+            Renderer2D.COLOR.begin();
+            Renderer2D.COLOR.quadRounded(x, y, w, h, backgroundColor.get(), renderer.roundAmount(), true);
 
             AudioTrack current = MotorTunez.player.getPlayingTrack();
             double progress = current == null ? 1 : current.getPosition() * 1d / current.getDuration();
@@ -165,25 +163,28 @@ public class TunezHud extends HudElement {
             // Song view
             double r = h * recordPart.get() / 2;
             double start = h / 2;
-            mb.circlePart(x + start, y + start, r, 0, circle, progressBackgroundColor.get());
-            mb.circlePartOutline(x + start, y + start, r, 0, circle * progress, progressColor.get(), progressWidth.get());
+            Renderer2D.COLOR.circlePart(x + start, y + start, r, 0, circle, progressBackgroundColor.get());
+            Renderer2D.COLOR.circlePartOutline(x + start, y + start, r, 0, circle * progress, progressColor.get(), progressWidth.get());
 
             double controlSizeHalf = r * recordStatusPart.get();
             if (MotorTunez.player.isPaused()) {
                 double pauseStart = h / 2 - controlSizeHalf;
                 double quadWidth = controlSizeHalf * 2 / 3;
-                mb.quad(x + pauseStart, y + pauseStart, quadWidth, controlSizeHalf * 2, textColor.get());
-                mb.quad(x + h / 2 + controlSizeHalf - quadWidth, y + pauseStart, quadWidth, controlSizeHalf * 2, textColor.get());
+                Renderer2D.COLOR.quad(x + pauseStart, y + pauseStart, quadWidth, controlSizeHalf * 2, textColor.get());
+                Renderer2D.COLOR.quad(x + h / 2 + controlSizeHalf - quadWidth, y + pauseStart, quadWidth, controlSizeHalf * 2, textColor.get());
             }
             else {
                 controlSizeHalf /= 2;
                 double startX = h / 2 - controlSizeHalf;
                 double startY = h / 2 - controlSizeHalf * 2;
-                mb.vert2(x + startX, y + startY, textColor.get());
-                mb.vert2(x + startX, y + startY + controlSizeHalf * 4, textColor.get());
-                mb.vert2(x + startX + controlSizeHalf * 2, y + startY + controlSizeHalf * 2, textColor.get());
+                Mesh m = Renderer2D.COLOR.triangles;
+                m.triangle(
+                        m.vec2(x + startX, y + startY).color(textColor.get()).next(),
+                        m.vec2(x + startX, y + startY + controlSizeHalf * 4).color(textColor.get()).next(),
+                        m.vec2(x + startX + controlSizeHalf * 2, y + startY + controlSizeHalf * 2).color(textColor.get()).next()
+                );
             }
-            mb.end();
+            Renderer2D.COLOR.render(null);
 
             TextRenderer tr = TextRenderer.get();
             tr.begin(headerFactor * textScale.get(), false, true);

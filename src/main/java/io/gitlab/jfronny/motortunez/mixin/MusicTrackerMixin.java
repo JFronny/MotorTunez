@@ -1,6 +1,5 @@
 package io.gitlab.jfronny.motortunez.mixin;
 
-import io.gitlab.jfronny.motortunez.MotorTunez;
 import net.minecraft.client.sound.MusicTracker;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

@@ -1,8 +1,8 @@
 package io.gitlab.jfronny.motortunez.gui;
 
-import minegame159.meteorclient.gui.GuiTheme;
-import minegame159.meteorclient.gui.tabs.Tab;
-import minegame159.meteorclient.gui.tabs.TabScreen;
+import meteordevelopment.meteorclient.gui.GuiTheme;
+import meteordevelopment.meteorclient.gui.tabs.Tab;
+import meteordevelopment.meteorclient.gui.tabs.TabScreen;
 import net.minecraft.client.gui.screen.Screen;
 
 public class TunezTab extends Tab {

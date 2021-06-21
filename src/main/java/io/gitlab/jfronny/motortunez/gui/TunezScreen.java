@@ -4,10 +4,10 @@ import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import io.gitlab.jfronny.motortunez.gui.widgets.CustomWidget;
 import io.gitlab.jfronny.motortunez.gui.widgets.CurrentTracksView;
 import io.gitlab.jfronny.motortunez.gui.widgets.SearchBar;
-import minegame159.meteorclient.gui.GuiTheme;
-import minegame159.meteorclient.gui.tabs.Tab;
-import minegame159.meteorclient.gui.tabs.WindowTabScreen;
-import minegame159.meteorclient.gui.widgets.containers.WTable;
+import meteordevelopment.meteorclient.gui.GuiTheme;
+import meteordevelopment.meteorclient.gui.tabs.Tab;
+import meteordevelopment.meteorclient.gui.tabs.WindowTabScreen;
+import meteordevelopment.meteorclient.gui.widgets.containers.WTable;
 
 import java.util.ArrayList;
 import java.util.List;

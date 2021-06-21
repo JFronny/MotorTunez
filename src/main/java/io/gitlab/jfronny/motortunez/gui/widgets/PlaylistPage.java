@@ -2,8 +2,8 @@ package io.gitlab.jfronny.motortunez.gui.widgets;
 
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import io.gitlab.jfronny.motortunez.gui.TunezScreen;
-import minegame159.meteorclient.gui.GuiTheme;
-import minegame159.meteorclient.gui.widgets.containers.WTable;
+import meteordevelopment.meteorclient.gui.GuiTheme;
+import meteordevelopment.meteorclient.gui.widgets.containers.WTable;
 
 import java.util.List;
 import java.util.function.Consumer;

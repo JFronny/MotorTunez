@@ -1,16 +1,15 @@
 package io.gitlab.jfronny.motortunez.gui;
 
-import com.ibm.icu.text.UTF16;
 import com.sedmelluq.discord.lavaplayer.track.AudioPlaylist;
 import io.gitlab.jfronny.motortunez.MotorTunez;
 import io.gitlab.jfronny.motortunez.gui.widgets.CustomWidget;
 import io.gitlab.jfronny.motortunez.gui.widgets.PaginationProvider;
 import io.gitlab.jfronny.motortunez.util.PlaylistUtil;
 import io.gitlab.jfronny.motortunez.util.SearchUtil;
-import minegame159.meteorclient.gui.GuiTheme;
-import minegame159.meteorclient.gui.WindowScreen;
-import minegame159.meteorclient.gui.widgets.containers.WTable;
-import minegame159.meteorclient.gui.widgets.input.WTextBox;
+import meteordevelopment.meteorclient.gui.GuiTheme;
+import meteordevelopment.meteorclient.gui.WindowScreen;
+import meteordevelopment.meteorclient.gui.widgets.containers.WTable;
+import meteordevelopment.meteorclient.gui.widgets.input.WTextBox;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.toast.SystemToast;
 

@@ -1,6 +1,5 @@
 package io.gitlab.jfronny.motortunez.mixin;
 
-import io.gitlab.jfronny.motortunez.MotorTunez;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.util.Window;
@@ -14,6 +13,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 import java.util.HashSet;
 import java.util.Set;
 
+//Forces the screen to be initialized before currentScreen is set and removes the second initialization
 @Mixin(MinecraftClient.class)
 public class ScreenFix {
     @Shadow @Final private Window window;

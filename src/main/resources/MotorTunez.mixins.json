@@ -1,16 +1,12 @@
 {
   "required": true,
-  "minVersion": "0.8",
   "package": "io.gitlab.jfronny.motortunez.mixin",
-  "compatibilityLevel": "JAVA_8",
-  "mixins": [
-    "HUDModuleMixin",
+  "compatibilityLevel": "JAVA_16",
+  "client": [
     "MusicTrackerMixin",
     "ScreenFix",
     "SoundManagerMixin",
     "SoundSystemMixin"
-  ],
-  "client": [
   ],
   "injectors": {
     "defaultRequire": 1

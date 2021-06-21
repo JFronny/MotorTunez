@@ -6,9 +6,9 @@ import io.gitlab.jfronny.motortunez.MotorTunez;
 import io.gitlab.jfronny.motortunez.gui.widgets.CustomWidget;
 import io.gitlab.jfronny.motortunez.gui.widgets.PaginationProvider;
 import io.gitlab.jfronny.motortunez.gui.widgets.PlaylistPage;
-import minegame159.meteorclient.gui.GuiTheme;
-import minegame159.meteorclient.gui.WindowScreen;
-import minegame159.meteorclient.gui.widgets.containers.WTable;
+import meteordevelopment.meteorclient.gui.GuiTheme;
+import meteordevelopment.meteorclient.gui.WindowScreen;
+import meteordevelopment.meteorclient.gui.widgets.containers.WTable;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
 

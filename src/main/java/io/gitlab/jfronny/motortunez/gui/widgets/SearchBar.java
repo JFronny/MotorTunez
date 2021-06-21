@@ -4,9 +4,9 @@ import io.gitlab.jfronny.motortunez.MotorTunez;
 import io.gitlab.jfronny.motortunez.gui.PlaylistViewScreen;
 import io.gitlab.jfronny.motortunez.gui.TunezScreen;
 import io.gitlab.jfronny.motortunez.util.SearchUtil;
-import minegame159.meteorclient.gui.GuiTheme;
-import minegame159.meteorclient.gui.widgets.containers.WTable;
-import minegame159.meteorclient.gui.widgets.input.WTextBox;
+import meteordevelopment.meteorclient.gui.GuiTheme;
+import meteordevelopment.meteorclient.gui.widgets.containers.WTable;
+import meteordevelopment.meteorclient.gui.widgets.input.WTextBox;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.toast.SystemToast;
 

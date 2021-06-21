@@ -6,10 +6,13 @@ import com.sedmelluq.discord.lavaplayer.player.DefaultAudioPlayerManager;
 import com.sedmelluq.discord.lavaplayer.source.AudioSourceManagers;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import io.gitlab.jfronny.motortunez.gui.TunezTab;
+import io.gitlab.jfronny.motortunez.hud.TunezHud;
 import io.gitlab.jfronny.motortunez.util.PlaylistUtil;
 import io.gitlab.jfronny.motortunez.util.StreamPlayer;
-import minegame159.meteorclient.MeteorAddon;
-import minegame159.meteorclient.gui.tabs.Tabs;
+import meteordevelopment.meteorclient.MeteorAddon;
+import meteordevelopment.meteorclient.gui.tabs.Tabs;
+import meteordevelopment.meteorclient.systems.modules.Modules;
+import meteordevelopment.meteorclient.systems.modules.render.hud.HUD;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.toast.SystemToast;
@@ -39,6 +42,9 @@ public class MotorTunez extends MeteorAddon {
         Tabs.add(new TunezTab());
         PlaylistUtil.load();
         start();
+
+        HUD hud = Modules.get().get(HUD.class);
+        hud.elements.add(new TunezHud(hud));
     }
     
     public static void toast(Text title, Text description, SystemToast.Type type) {

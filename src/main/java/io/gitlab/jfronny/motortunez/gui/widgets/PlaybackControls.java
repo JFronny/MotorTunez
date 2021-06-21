@@ -3,10 +3,10 @@ package io.gitlab.jfronny.motortunez.gui.widgets;
 import io.gitlab.jfronny.motortunez.MotorTunez;
 import io.gitlab.jfronny.motortunez.gui.PlaylistsScreen;
 import io.gitlab.jfronny.motortunez.gui.TunezScreen;
-import minegame159.meteorclient.gui.GuiTheme;
-import minegame159.meteorclient.gui.widgets.containers.WHorizontalList;
-import minegame159.meteorclient.gui.widgets.containers.WTable;
-import minegame159.meteorclient.gui.widgets.pressable.WButton;
+import meteordevelopment.meteorclient.gui.GuiTheme;
+import meteordevelopment.meteorclient.gui.widgets.containers.WHorizontalList;
+import meteordevelopment.meteorclient.gui.widgets.containers.WTable;
+import meteordevelopment.meteorclient.gui.widgets.pressable.WButton;
 import net.minecraft.client.MinecraftClient;
 
 import java.util.Collections;
