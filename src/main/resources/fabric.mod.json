@@ -3,7 +3,7 @@
   "id": "motor_tunez",
   "version": "${version}",
   "name": "MotorTunez",
-  "description": "",
+  "description": "A music player for Meteor",
   "authors": [],
   "contact": {},
   "license": "MIT",
@@ -20,11 +20,13 @@
   "depends": {
     "fabricloader": ">=0.11.3",
     "fabric": "*",
-    "minecraft": "1.17.*"
+    "minecraft": ">=@mc_version@",
+    "meteor-client": "*"
   },
   "custom": {
     "modmenu": {
       "parent": "meteor-client"
-    }
+    },
+    "meteor-client:color": "225,25,25"
   }
 }

@@ -66,7 +66,7 @@ public class PlaylistsScreen extends WindowScreen {
             AudioPlaylist playlist = keys.get(j).getValue();
 
             table.add(theme.button(playlist.getName())).expandX().widget().action = () ->
-                    MinecraftClient.getInstance().openScreen(new PlaylistViewScreen(theme, playlist, tunezScreen).setParent(this));
+                    MinecraftClient.getInstance().setScreen(new PlaylistViewScreen(theme, playlist, tunezScreen).setParent(this));
 
             table.add(theme.minus()).right().widget().action = () -> {
                 PlaylistUtil.remove(keys.get(j).getKey());

@@ -49,7 +49,7 @@ public class PlaylistViewScreen extends WindowScreen {
             for (AudioTrack track : results.getTracks()) {
                 MotorTunez.trackScheduler.queue(track);
             }
-            MinecraftClient.getInstance().openScreen(parent);
+            MinecraftClient.getInstance().setScreen(parent);
             tunezScreen.construct();
         };
         table.row();

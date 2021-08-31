@@ -18,7 +18,7 @@ import java.util.Set;
 public class ScreenFix {
     @Shadow @Final private Window window;
     private static final Set<Screen> motortunez$passingScreens = new HashSet<>();
-    @Redirect(method = "openScreen(Lnet/minecraft/client/gui/screen/Screen;)V", at = @At(value = "FIELD", target = "Lnet/minecraft/client/MinecraftClient;currentScreen:Lnet/minecraft/client/gui/screen/Screen;", opcode = Opcodes.PUTFIELD))
+    @Redirect(method = "setScreen(Lnet/minecraft/client/gui/screen/Screen;)V", at = @At(value = "FIELD", target = "Lnet/minecraft/client/MinecraftClient;currentScreen:Lnet/minecraft/client/gui/screen/Screen;", opcode = Opcodes.PUTFIELD))
     public void preInitScreen(MinecraftClient client, Screen screen) {
         if (screen != null) {
             motortunez$passingScreens.add(screen);
@@ -27,7 +27,7 @@ public class ScreenFix {
         client.currentScreen = screen;
     }
     
-    @Redirect(method = "openScreen(Lnet/minecraft/client/gui/screen/Screen;)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/screen/Screen;init(Lnet/minecraft/client/MinecraftClient;II)V"))
+    @Redirect(method = "setScreen(Lnet/minecraft/client/gui/screen/Screen;)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/screen/Screen;init(Lnet/minecraft/client/MinecraftClient;II)V"))
     private void disableInit(Screen screen, MinecraftClient client, int width, int height) {
         if (motortunez$passingScreens.remove(screen))
             screen.init(client, width, height);

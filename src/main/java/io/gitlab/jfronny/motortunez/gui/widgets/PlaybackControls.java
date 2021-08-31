@@ -37,7 +37,7 @@ public class PlaybackControls extends CustomWidget {
             };
         }
         list.add(theme.button("Playlists")).widget().action = () -> {
-            MinecraftClient.getInstance().openScreen(new PlaylistsScreen(theme, screen));
+            MinecraftClient.getInstance().setScreen(new PlaylistsScreen(theme, screen));
         };
 
         list.add(theme.label("Duration: " + MotorTunez.getTime())).right();

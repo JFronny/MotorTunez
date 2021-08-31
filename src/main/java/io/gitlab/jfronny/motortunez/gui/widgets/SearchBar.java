@@ -16,7 +16,7 @@ public class SearchBar extends CustomWidget {
         WTextBox box = parent.add(theme.textBox("")).expandX().widget();
         parent.add(theme.button("Search")).widget().action = () -> SearchUtil.search(box.get(),
                 (title, description) -> MotorTunez.toast(title, description, SystemToast.Type.PACK_COPY_FAILURE),
-                playlist -> MinecraftClient.getInstance().openScreen(new PlaylistViewScreen(theme, playlist, screen)));
+                playlist -> MinecraftClient.getInstance().setScreen(new PlaylistViewScreen(theme, playlist, screen)));
         super.add(parent, screen, theme);
     }
 }
